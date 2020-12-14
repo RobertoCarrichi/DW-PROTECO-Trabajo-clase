@@ -1,0 +1,53 @@
+            /*
+                Ya que si existe rama izquierda se tratará de encontrar el 
+                nodo más a la derecha posible, en este caso hasta que encuentre
+                un valor nulo.
+            */
+            nodoFinal = n.izq;
+            while(nodoFinal.der != null){
+                /*
+                    Si se encontró un valor derecho del nodo actual este nodo
+                    encontrado será nueva la posible hoja que repeemplazará al nodo
+                    que quiere eliminarse.
+                */
+                n = nodoFinal;
+                nodoFinal = n.der;
+            }
+            
+            /*
+                Ya se conoce el valor por el que será reemplazado el nodo que fue enviado
+                como argumento, por lo que debe existir un intercambio. Pero se deberá
+                tomar en cuenta algo antes de eliminarlo: 
+
+                "Si se llegó al valor más derecho posible y este nodo aún tiene un hijo izquierdo 
+                deberá conectarse este hijo con el padre del nodo final." 
+            */
+
+
+            if (nodoFinal.izq!=null) {
+                // En este caso significa que si hay una rama aún que debe conectarse de nuevo.
+                // this.add(n,nodoFinal.izq,1);
+            }else{
+                // n.setDer(null);
+            }
+
+            // Intercambio entre el nodo a eliminar y el nodo que lo reemplazará.
+            // El intercambio se efecturará mediante LAS REFERENCIAS que tienen hacia otros nodos.
+            // Las referencias del 
+
+
+
+
+
+
+            nodoFinal = n.der;
+            while(nodoFinal.izq != null){
+                n = nodoFinal;
+                nodoFinal = n.izq;
+            }
+            if (nodoFinal.der!=null) {
+                // System.out.println(nodoFinal.valor+" Aun tiene ramaaaa");
+                this.add(n,nodoFinal.der,0);
+            }else{
+                n.setIzq(null);
+            }
